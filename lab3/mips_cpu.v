@@ -186,7 +186,7 @@ module alu(a, b, alu_control, alu_result, zero);
         3'b001: alu_result = a | b;
         3'b010: alu_result = a + b;
         3'b110: alu_result = a - b;
-        3'b111: alu_result = (a < b) ? 1 : 0; // slt
+        3'b111: alu_result = ($signed(a) < $signed(b)) ? 1 : 0;
     endcase
     zero = (alu_result == 0) ? 1 : 0;
     end
